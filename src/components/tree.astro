@@ -1,0 +1,63 @@
+
+---
+// src/components/tree.astro
+export interface Props {
+  /** Width of the SVG in pixels */
+  width?: number;
+  /** Height of the SVG in pixels */
+  height?: number;
+  /** Tailwind class (or other) for tree fill color; ignored if fillColor is set */
+  colorClass?: string;
+  /** Direct fill color code (e.g. "#aaff77" or "rgba(100, 200, 100, 0.8)") */
+  fillColor?: string;
+}
+
+const {
+  width = 100,
+  height = 160,
+  colorClass = 'fill-green-700',
+  fillColor,
+} = Astro.props as Props;
+
+// Decide whether to use a CSS class or inline fill
+const useClass = !fillColor;
+const foliageProps = useClass
+  ? { class: colorClass }
+  : { fill: fillColor };
+---
+
+<svg
+  width={width}
+  height={height}
+  viewBox="0 0 100 160"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="Tree"
+>
+  <!-- Tree foliage layers: fill via class or direct color code; outlined in black -->
+  <g
+    {...foliageProps}
+    stroke="#000"
+    stroke-width="2"
+    stroke-linejoin="round"
+  >
+    <!-- Bottom triangle: apex at (50,80), left base at (8,150), right base at (95,150) -->
+    <polygon points="50,80 8,150 95,150" />
+    <!-- Middle triangle: apex at (50,60), left base at (17.3,110), right base at (82.7,110) -->
+    <polygon points="50,60 17.3,110 82.7,110" />
+    <!-- Top triangle: apex at (50,40), left base at (28.6,75), right base at (71.4,75) -->
+    <polygon points="50,40 28.6,75 71.4,75" />
+  </g>
+
+  <!-- Trunk remains fixed color with black outline -->
+  <rect
+    x="45"
+    y="150"
+    width="10"
+    height="20"
+    fill="#8B5E3C"
+    stroke="#000"
+    stroke-width="1"
+  />
+</svg>
+

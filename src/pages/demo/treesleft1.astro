@@ -1,0 +1,31 @@
+
+---
+import TreeGroupLeft1 from '../../components/treegroup-left-1.astro';
+---
+
+<!-- Hydrate this playground on the client 
+<Playground
+  client:load
+  component={Tree}
+  controls={[
+    { name: 'width',  type: 'range',  min: 49,  max: 300, defaultValue: 100 },
+    { name: 'height', type: 'range',  min: 80,  max: 400, defaultValue: 160 },
+    {
+      name: 'colorClass',
+      type: 'select',
+      options: [
+        { label: 'Green', value: 'fill-green-500' },
+        { label: 'Dark',  value: 'fill-green-700' },
+        { label: 'Emerald', value: 'fill-emerald-500' },
+        { label: 'Blue',  value: 'fill-blue-500' },
+      ],
+      defaultValue: 'fill-green-700',
+    },
+    { name: 'label', type: 'text', defaultValue: 'Up North' },
+  ]}
+/>
+-->
+<g>
+	<TreeGroupLeft1 />
+</g>
+

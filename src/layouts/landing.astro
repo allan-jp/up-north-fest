@@ -1,0 +1,74 @@
+
+---
+import "../styles/landing.css";
+import TreesLeft1 from "../components/treegroup-left-1.astro"
+import TreesRight1 from "../components/treegroup-right-1.astro"
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lake-View Landing</title>
+  </head>
+  <body class="m-0 overflow-hidden bg-sky-50">
+    <div class="relative h-screen w-screen">
+      <svg
+        viewBox="0 0 1000 600"
+        preserveAspectRatio="xMidYMid slice"
+        class="absolute inset-0 w-full h-full"
+      >
+        <!-- SKY BACKGROUND -->
+        <defs>
+          <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#bde0ff" />
+            <stop offset="100%" stop-color="#e0f2fe" />
+          </linearGradient>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#sky)" />
+
+        <!-- LAKE -->
+        <path
+          d="M0 400 Q500 380 1000 400 L1000 600 L0 600 Z"
+          fill="#4ec3f7"
+        />
+
+        <!-- DIRT PATH (across screen with slight concavity) -->
+        <path
+          d="M0 580 Q500 600 1000 580 L1000 600 L0 600 Z"
+          fill="#5e452a"
+          opacity="0.9"
+        />
+
+        <!-- TREES – left side (taller, angled ~20°) -->
+				<g id="trees-left">
+					<TreesLeft1 color='fill-pink-500' />
+
+        </g>
+
+        <!-- TREES – right side (mirrored) -->
+				<g id="trees-right">
+					<TreesRight1 />
+        </g>
+
+        <!-- LOGO SIGN (“Up North”) -->
+        <g id="logo-sign" transform="translate(500 450)">
+          <circle cx="0" cy="0" r="50" fill="#FFEB3B" stroke="#000" stroke-width="4" />
+          <text
+            x="0"
+            y="8"
+            text-anchor="middle"
+            font-size="24"
+            font-family="Verdana, sans-serif"
+            fill="#F44336"
+            style="letter-spacing:1px"
+          >
+            Up North
+          </text>
+        </g>
+      </svg>
+    </div>
+    <slot />
+  </body>
+</html>
+

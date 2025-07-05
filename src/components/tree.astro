@@ -29,7 +29,7 @@ const foliageProps = useClass
 <svg
   width={width}
   height={height}
-  viewBox="0 0 100 160"
+  viewBox="0 0 100 200"
   xmlns="http://www.w3.org/2000/svg"
   role="img"
   aria-label="Tree"
@@ -41,23 +41,13 @@ const foliageProps = useClass
     stroke-width="2"
     stroke-linejoin="round"
   >
-    <!-- Bottom triangle: apex at (50,80), left base at (8,150), right base at (95,150) -->
+    <!-- Base triangle: apex at (X,Y), left base at (X,Y), right base at (X,Y) -->
+		<polygon points="50,100 0,190 100,190" />
+    <!-- Bottom-Middletriangle: apex at (50,80), left base at (8,150), right base at (95,150) -->
     <polygon points="50,80 8,150 95,150" />
-    <!-- Middle triangle: apex at (50,60), left base at (17.3,110), right base at (82.7,110) -->
+    <!-- Top-Middle triangle: apex at (50,60), left base at (17.3,110), right base at (82.7,110) -->
     <polygon points="50,60 17.3,110 82.7,110" />
     <!-- Top triangle: apex at (50,40), left base at (28.6,75), right base at (71.4,75) -->
     <polygon points="50,40 28.6,75 71.4,75" />
-  </g>
-
-  <!-- Trunk remains fixed color with black outline -->
-  <rect
-    x="45"
-    y="150"
-    width="10"
-    height="20"
-    fill="#8B5E3C"
-    stroke="#000"
-    stroke-width="1"
-  />
+	</g>
 </svg>
-

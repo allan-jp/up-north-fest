@@ -1,20 +1,51 @@
 
 ---
-// src/components/treegroup-left-1.astro
+// src/components/tree-group-left-1.astro
 import Tree from './tree.astro';
 ---
 
-<!-- Left-edge grouping of trees, tallest to shortest left→right -->
-<g id="tree-group-left-1" transform="translate(10,350)">
-  <!-- Tallest to shortest: left→right -->
-  <g transform="translate(0,0)">
-    <Tree width={100} height={160} colorClass="fill-green-800" />
-  </g>
-  <g transform="translate(90,10)">
-    <Tree width={90} height={150} colorClass="fill-green-700" />
-  </g>
-  <g transform="translate(170,20)">
-    <Tree width={80} height={140} colorClass="fill-green-600" />
-  </g>
-</g>
+<!-- Left-edge clump: back-and-front rows interleaved for depth -->
+<g id="tree-group-left-1">
+  <!-- Pair 1 -->
+  <g transform="translate(10,260)"><Tree width={100} height={160} fillColor="#374f2f" /></g>
+  <g transform="translate(30,250)"><Tree width={98}  height={158} fillColor="#4a6741" /></g>
 
+  <!-- Pair 2 -->
+  <g transform="translate(50,265)"><Tree width={96}  height={156} fillColor="#304529" /></g>
+  <g transform="translate(70,255)"><Tree width={94}  height={154} fillColor="#3f5a36" /></g>
+
+  <!-- Pair 3 -->
+  <g transform="translate(90,270)"><Tree width={92}  height={152} fillColor="#22311d" /></g>
+  <g transform="translate(110,260)"><Tree width={90} height={150} fillColor="#374f2f" /></g>
+
+  <!-- Pair 4 -->
+  <g transform="translate(130,275)"><Tree width={88}  height={148} fillColor="#304529" /></g>
+  <g transform="translate(150,265)"><Tree width={86}  height={146} fillColor="#4a6741" /></g>
+
+  <!-- Pair 5 -->
+  <g transform="translate(170,280)"><Tree width={84}  height={144} fillColor="#374f2f" /></g>
+  <g transform="translate(190,270)"><Tree width={82}  height={142} fillColor="#3f5a36" /></g>
+
+  <!-- Pair 6 -->
+  <g transform="translate(210,285)"><Tree width={80}  height={140} fillColor="#22311d" /></g>
+  <g transform="translate(230,275)"><Tree width={78}  height={138} fillColor="#304529" /></g>
+
+  <!-- Pair 7 -->
+  <g transform="translate(250,290)"><Tree width={76}  height={136} fillColor="#374f2f" /></g>
+  <g transform="translate(270,280)"><Tree width={74}  height={134} fillColor="#4a6741" /></g>
+
+  <!-- Pair 8 -->
+  <g transform="translate(290,295)"><Tree width={72}  height={132} fillColor="#22311d" /></g>
+  <g transform="translate(310,285)"><Tree width={70}  height={130} fillColor="#3f5a36" /></g>
+
+  <!-- Pair 9 -->
+  <g transform="translate(330,300)"><Tree width={68}  height={128} fillColor="#304529" /></g>
+  <g transform="translate(350,290)"><Tree width={66}  height={126} fillColor="#374f2f" /></g>
+
+  <!-- Pair 10 -->
+  <g transform="translate(370,305)"><Tree width={64}  height={124} fillColor="#22311d" /></g>
+  <g transform="translate(390,295)"><Tree width={62}  height={122} fillColor="#4a6741" /></g>
+
+	<!-- Extra front tree for trunk balance -->
+  <g transform="translate(405,310)"><Tree width={60} height={118} fillColor="#3f5a36" /></g>
+</g>

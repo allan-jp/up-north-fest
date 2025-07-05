@@ -4,17 +4,49 @@
 import Tree from './tree.astro';
 ---
 
-<!-- Right-edge grouping of trees, tallest to shortest left→right -->
-<g transform="translate(730,350)">
-  <!-- Tallest to shortest: left→right -->
-  <g transform="translate(0,0)">
-    <Tree width={100} height={160} fillColor="#FFA500" />
-  </g>
-  <g transform="translate(90,10)">
-    <Tree width={90} height={150} fillColor="#FFA500" />
-  </g>
-  <g transform="translate(170,20)">
-    <Tree width={80} height={140} fillColor="#FFA500" />
-  </g>
+<!-- Right-edge clump: back-and-front rows interleaved for depth, right→left -->
+<g id="tree-group-right-1">
+  <!-- Pair 1 (rightmost) -->
+  <g transform="translate(990,260)"><Tree width={100} height={160} fillColor="#304529" /></g>
+  <g transform="translate(970,250)"><Tree width={98}  height={158} fillColor="#3f5a36" /></g>
+
+  <!-- Pair 2 -->
+  <g transform="translate(950,265)"><Tree width={96}  height={156} fillColor="#22311d" /></g>
+  <g transform="translate(930,255)"><Tree width={94}  height={154} fillColor="#374f2f" /></g>
+
+  <!-- Pair 3 -->
+  <g transform="translate(910,270)"><Tree width={92}  height={152} fillColor="#304529" /></g>
+  <g transform="translate(890,260)"><Tree width={90} height={150} fillColor="#3f5a36" /></g>
+
+  <!-- Pair 4 -->
+  <g transform="translate(870,275)"><Tree width={88}  height={148} fillColor="#22311d" /></g>
+  <g transform="translate(850,265)"><Tree width={86}  height={146} fillColor="#374f2f" /></g>
+
+  <!-- Pair 5 -->
+  <g transform="translate(830,280)"><Tree width={84}  height={144} fillColor="#304529" /></g>
+  <g transform="translate(810,270)"><Tree width={82}  height={142} fillColor="#3f5a36" /></g>
+
+  <!-- Pair 6 -->
+  <g transform="translate(790,285)"><Tree width={80}  height={140} fillColor="#22311d" /></g>
+  <g transform="translate(770,275)"><Tree width={78}  height={138} fillColor="#374f2f" /></g>
+
+  <!-- Pair 7 -->
+  <g transform="translate(750,290)"><Tree width={76}  height={136} fillColor="#304529" /></g>
+  <g transform="translate(730,280)"><Tree width={74}  height={134} fillColor="#3f5a36" /></g>
+
+  <!-- Pair 8 -->
+  <g transform="translate(710,295)"><Tree width={72}  height={132} fillColor="#22311d" /></g>
+  <g transform="translate(690,285)"><Tree width={70}  height={130} fillColor="#374f2f" /></g>
+
+  <!-- Pair 9 -->
+  <g transform="translate(670,300)"><Tree width={68}  height={128} fillColor="#304529" /></g>
+  <g transform="translate(650,290)"><Tree width={66}  height={126} fillColor="#3f5a36" /></g>
+
+  <!-- Pair 10 -->
+  <g transform="translate(630,305)"><Tree width={64}  height={124} fillColor="#22311d" /></g>
+  <g transform="translate(610,295)"><Tree width={62}  height={122} fillColor="#374f2f" /></g>
+
+  <!-- Extra front tree for balance -->
+  <g transform="translate(590,310)"><Tree width={60} height={120} fillColor="#4a6741" /></g>
 </g>
 

@@ -6,14 +6,14 @@
   /* start over center (matches your initial placement) */
   from { transform: translate(0px, -140px); }
   /* end off to the left and slightly down */
-  to   { transform: translate(0px, -140px); }
+  to   { transform: translate(-100px, -140px); }
 }
 
 @keyframes trees-right-part {
   /* start over center mirrored */
   from { transform: translate(-200px, -140px); }
   /* end off to the right and slightly down */
-  to   { transform: translate(-200px, -140px); }
+  to   { transform: translate(-150px, -140px); }
 }
 
 /* 2) Logo fades in and lifts slightly */

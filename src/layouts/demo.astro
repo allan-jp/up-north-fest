@@ -1,0 +1,38 @@
+
+---
+// src/layouts/demo.astro
+import '../styles/landing.css'
+---
+
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Component Debug Demo</title>
+  </head>
+  <body class="h-full m-0 overflow-hidden bg-gray-100">
+    <!-- Center the debug SVG container -->
+    <div class="w-screen h-screen flex items-center justify-center">
+      <svg
+        viewBox="0 0 1000 600"
+        preserveAspectRatio="xMidYMid meet"
+        class="w-full h-full transform scale-[0.75] origin-top-left debug-svg"
+      >
+        <!-- Debug outline of the 0–1000 × 0–600 viewBox -->
+        <rect
+          x="0"
+          y="0"
+          width="1000"
+          height="600"
+          fill="none"
+          stroke="red"
+          stroke-width="4"
+          opacity="0.5"
+        />
+
+        <!-- Slot in demo components here -->
+        <slot />
+      </svg>
+    </div>
+  </body>
+</html>

@@ -4,16 +4,16 @@
 /* 1) Trees start overlapping center, then slide outward & downward */
 @keyframes trees-left-part {
   /* start over center (matches your initial placement) */
-  from { transform: translate(160px, -140px); }
+  from { transform: translate(0px, -140px); }
   /* end off to the left and slightly down */
-  to   { transform: translate(-150px, 100px); }
+  to   { transform: translate(0px, -140px); }
 }
 
 @keyframes trees-right-part {
   /* start over center mirrored */
-  from { transform: translate(-160px, -140px); }
+  from { transform: translate(-200px, -140px); }
   /* end off to the right and slightly down */
-  to   { transform: translate(150px, 100px); }
+  to   { transform: translate(-200px, -140px); }
 }
 
 /* 2) Logo fades in and lifts slightly */
@@ -50,4 +50,13 @@
   transform-box: fill-box;
   transform-origin: 0 0;
 }
+
+/* Debug helpers */
+.debug-svg {
+  display: block;             /* make the SVG a block-level box */
+  border: 2px dashed red;     /* visible dashed border */
+  box-sizing: border-box;     /* include the border in the element’s dimensions */
+}
+
+
 

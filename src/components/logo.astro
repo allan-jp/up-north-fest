@@ -1,0 +1,43 @@
+
+---
+// src/components/hun-logo.astro
+
+interface Props {
+  /** Optional ID for CSS targeting */
+  id?: string;
+  /** Optional class for additional styling */
+  class?: string;
+  /** Path or URL to the image file */
+  src?: string;
+  /** CSS width (e.g. '100%', '300px') */
+  width?: string;
+  /** CSS height (e.g. 'auto', '200px') */
+  height?: string;
+}
+const {
+  id = 'logo',
+  class: cls = '',
+	src = '../assets/hun_logo.png',
+  width = '100%',
+  height = 'auto'
+} = Astro.props;
+---
+<svg
+  {...(id && { id })}
+  {...(cls && { class: cls })}
+  width={width}
+  height={height}
+  viewBox="0 0 1080 1350"
+  preserveAspectRatio="xMidYMid meet"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- Embed a raster (PNG/JPG) image inside the SVG -->
+  <image
+    href={src}
+    x="0"
+    y="0"
+    width="1080"
+    height="1350"
+    preserveAspectRatio="xMidYMid meet"
+  />
+</svg>

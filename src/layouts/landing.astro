@@ -1,6 +1,7 @@
 
 ---
 import "../styles/landing.css";
+import Logo from "../components/logo.astro"
 import TreesLeft1 from "../components/treegroup-left-1.astro"
 import TreesRight1 from "../components/treegroup-right-1.astro"
 ---
@@ -41,6 +42,11 @@ import TreesRight1 from "../components/treegroup-right-1.astro"
           fill="#4ec3f7"
         />
 
+				<!-- LOGO SIGN (“Up North”) -->
+				<g id="logo">
+					<Logo />
+				</g>
+
         <!-- TREES – left side (taller, angled ~20°) -->
 				<g id="trees-left">
 					<TreesLeft1 />
@@ -50,8 +56,6 @@ import TreesRight1 from "../components/treegroup-right-1.astro"
 				<g id="trees-right">
 					<TreesRight1 />
         </g>
-
-				<!-- LOGO SIGN (“Up North”) -->
 
       </svg>
     </div>

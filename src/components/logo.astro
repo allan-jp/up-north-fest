@@ -1,43 +1,33 @@
 
 ---
-// src/components/hun-logo.astro
-
-interface Props {
-  /** Optional ID for CSS targeting */
-  id?: string;
-  /** Optional class for additional styling */
-  class?: string;
-  /** Path or URL to the image file */
-  src?: string;
-  /** CSS width (e.g. '100%', '300px') */
-  width?: string;
-  /** CSS height (e.g. 'auto', '200px') */
-  height?: string;
-}
-const {
-  id = 'logo',
-  class: cls = '',
-	src = '../assets/hun_logo.png',
-  width = '100%',
-  height = 'auto'
-} = Astro.props;
+// src/components/logo.astro
 ---
 <svg
-  {...(id && { id })}
-  {...(cls && { class: cls })}
-  width={width}
-  height={height}
-  viewBox="0 0 1080 1350"
-  preserveAspectRatio="xMidYMid meet"
+  width="120"
+  height="200"
+  viewBox="0 0 120 200"
   xmlns="http://www.w3.org/2000/svg"
 >
-  <!-- Embed a raster (PNG/JPG) image inside the SVG -->
-  <image
-    href={src}
-    x="0"
-    y="0"
-    width="1080"
-    height="1350"
-    preserveAspectRatio="xMidYMid meet"
+  <!-- Forest-green vertical pill, width = circle diameter (60) -->
+  <rect
+    x="30"
+    y="60"
+    width="60"
+    height="100"
+    rx="30"
+    ry="30"
+    fill="#228B22"
+    stroke="#000"
+    stroke-width="2"
+  />
+
+  <!-- Matte-yellow circle overlapping the top of the pill -->
+  <circle
+    cx="60"
+    cy="60"
+    r="30"
+    fill="#FFD54F"
+    stroke="#000"
+    stroke-width="2"
   />
 </svg>

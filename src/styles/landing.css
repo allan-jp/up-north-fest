@@ -4,9 +4,9 @@
 /* 1) Trees start overlapping center, then slide outward & downward */
 @keyframes trees-left-part {
   /* start over center (matches your initial placement) */
-  from { transform: translate(0px, -140px); }
+  from { transform: translate(10px, -140px); }
   /* end off to the left and slightly down */
-  to   { transform: translate(-100px, -140px); }
+  to   { transform: translate(-90px, -140px); }
 }
 
 @keyframes trees-right-part {

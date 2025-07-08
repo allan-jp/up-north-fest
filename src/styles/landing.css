@@ -30,7 +30,7 @@
 /* 2) Logo fades in and lifts slightly */
 @keyframes logo-fade-in {
   from {
-    opacity: 0;
+    opacity: .8;
     /* start ~20px below the lowest tree tip */
     transform: translate(348px, 200px);
   }

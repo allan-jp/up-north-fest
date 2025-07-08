@@ -1,6 +1,17 @@
 
 /* landing.css – tree-parting + logo reveal animations */
 
+/* Sky-related */
+.bg-sky {
+  /* 15% lighter than #87CEEB is computed as #99D5EE */
+  background: linear-gradient(
+    to top,
+    #C3E7F5 0%,
+    #87CEEB 100%
+  );
+}
+
+
 /* 1) Trees start overlapping center, then slide outward & downward */
 @keyframes trees-left-part {
   /* start over center (matches your initial placement) */
@@ -21,12 +32,12 @@
   from {
     opacity: 0;
     /* start ~20px below the lowest tree tip */
-    transform: translate(352px, 200px);
+    transform: translate(348px, 200px);
   }
   to { 
     opacity: 1;
     /* end ~10px above the lowest tree tip */
-    transform: translate(352px, 80px);
+    transform: translate(348px, 65px);
   }
 }
 
@@ -51,13 +62,28 @@
   animation: logo-fade-in 2.5s ease-out 0s forwards;
 }
 
-	
+
+#water {
+  /* scale down to 50% of its original size */
+  transform: translateY(235px) translateX(210px) scale(0.2);
+  /* pivot the transform from the top‐center of the SVG */
+  transform-origin: top center;
+  /* ensure it remains absolutely positioned */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 800px;     /* keeps your viewBox aspect */
+  height: auto;
+}
+
+
 /* Debug helpers */
 .debug-svg {
   display: block;             /* make the SVG a block-level box */
   border: 2px dashed red;     /* visible dashed border */
   box-sizing: border-box;     /* include the border in the element’s dimensions */
 }
+
 
 
 

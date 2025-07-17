@@ -1,14 +1,38 @@
 
 ---
 // src/components/logo.astro
+export interface Props {
+  scale?: number
+}
+
+const {
+  scale = 1.0
+} = Astro.props as Props;
+
+// compute scaled dims
+const baseW = 120;
+const baseH = 200;
+const w = baseW * scale;
+const h = baseH * scale;
 ---
 <svg
-  width="120"
-  height="200"
+  width={w}
+  height={h}
   viewBox="0 0 120 200"
   xmlns="http://www.w3.org/2000/svg"
+  style="
+    --pill-fill0: #2E352A;
+    --pill-fill1: #435240;
+    --pill-fill2: #869C81;
+    --circle-fill0: #C37036;
+    --circle-fill1: #E18B4F;
+    --circle-fill2: #EAA677;
+    --circle-fill3: #F7EA97;
+    --stroke:      #000;
+    --stroke-w:    1px;
+  "
 >
-  <!-- Forest-green vertical pill, width = circle diameter (60) -->
+  <!-- 1) pill-fill0 – no size change -->
   <rect
     x="30"
     y="60"
@@ -16,18 +40,75 @@
     height="100"
     rx="30"
     ry="30"
-    fill="#228B22"
+    fill="var(--pill-fill0)"
     stroke="#000"
     stroke-width="1"
   />
 
-  <!-- Matte-yellow circle overlapping the top of the pill -->
+  <!-- 2) circle-fill0 – shrink by 3px (r: 30→27) -->
+  <rect
+    x="30"
+    y="60"
+    width="54"
+    height="94"
+    rx="27"
+    ry="27"
+    fill="var(--pill-fill1)"
+    stroke="#000"
+    stroke-width="1"
+  />
+
+  <!-- 3) pill-fill1 – shrink by 6px (w:60→54, h:100→94) -->
   <circle
     cx="60"
     cy="60"
-    r="30"
-    fill="#FFD54F"
+    r="27"
+    fill="var(--circle-fill0)"
+    stroke="#000"
+    stroke-width="1"
+  />
+
+  <!-- 4) circle-fill1 – shrink by 9px (r:30→21) -->
+  <circle
+    cx="60"
+    cy="60"
+    r="21"
+    fill="var(--circle-fill1)"
+    stroke="#000"
+    stroke-width="1"
+  />
+
+  <!-- 5) pill-fill2 – shrink by 12px (w:60→48, h:100→88) -->
+  <rect
+    x="30"
+    y="60"
+    width="48"
+    height="88"
+    rx="24"
+    ry="24"
+    fill="var(--pill-fill2)"
+    stroke="#000"
+    stroke-width="1"
+  />
+
+  <!-- 6) circle-fill2 – shrink by 15px (r:30→15) -->
+  <circle
+    cx="60"
+    cy="60"
+    r="15"
+    fill="var(--circle-fill2)"
+    stroke="#000"
+    stroke-width="1"
+  />
+
+  <!-- 7) circle-fill3 – shrink by 18px (r:30→12) -->
+  <circle
+    cx="60"
+    cy="60"
+    r="12"
+    fill="var(--circle-fill3)"
     stroke="#000"
     stroke-width="1"
   />
 </svg>
+

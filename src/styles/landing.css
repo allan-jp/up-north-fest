@@ -3,13 +3,16 @@
 
 /* Sky-related */
 .bg-sky {
-  /* 15% lighter than #87CEEB is computed as #99D5EE */
+  /* bottom stays light, top goes 20% deeper in blue */
   background: linear-gradient(
     to top,
-    #C3E7F5 0%,
-    #87CEEB 100%
+    #C3E7F5 0%,       /* light sky at bottom */
+    #87CEEB 60%,      /* your original sky mid‑point */
+    #61A4E1 80%,      /* deeper blue accent */
+    #1E90FF 100%      /* full‑strength blue at the very top */
   );
 }
+
 
 
 /* 1) Trees start overlapping center, then slide outward & downward */

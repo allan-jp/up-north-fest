@@ -5,20 +5,60 @@ export interface Props {
   scale?: number
 }
 
-const {
-  scale = 1.0
-} = Astro.props as Props;
+const { scale = 1.0 } = Astro.props as Props;
 
-// compute scaled dims
+// 1) Canvas dimensions
 const baseW = 120;
 const baseH = 200;
+
+// 2) Compute center points
+const cx = baseW / 2;     // 60
+const cy = baseH / 2;     // 100
+
+// 3) Vertical shift: move bottom of pill stack up by 15% of canvas height
+const shiftY = -(baseH * 0.15); // -30
+const centerY = cy + shiftY;     // 70
+
+// 4) Pill sizes: bottom pill fixed, adjust top two to match pill spacing
+const pillSizes   = [63, 55.5, 48];  // widths
+const pillHeights = pillSizes.map(w => w + 40);  // heights = width + 40
+const pillFills   = ['--pill-fill0','--pill-fill1','--pill-fill2'];
+
+// 5) Pill ring spacing (radial)
+const ringSpacing = (pillSizes[0] / 2) - (pillSizes[1] / 2); // 31.5 - 27.75 = 3.75
+
+// 6) Circle radii: start slightly smaller than bottom pill, then subtract ringSpacing each step
+const baseCircleR = (pillSizes[0] / 2) - ringSpacing + 2;      // 27.75
+const circleRadii = [
+  baseCircleR,                // bottom circle
+  baseCircleR - ringSpacing,
+  baseCircleR - 2 * ringSpacing,
+  baseCircleR - 3 * ringSpacing
+];
+const circleFills = ['--circle-fill0','--circle-fill1','--circle-fill2','--circle-fill3'];
+
+// 7) Circle vertical center: split difference from last two iterations (approx midpoint)
+const circleCY = 33.5;
+
+// 8) Draw order: Pill, Pill, Circ, Circ, Pill, Circ, Circ
+const shapeOrder = [
+  { type: 'pill',   idx: 0 },
+  { type: 'pill',   idx: 1 },
+  { type: 'circle', idx: 0 },
+  { type: 'circle', idx: 1 },
+  { type: 'pill',   idx: 2 },
+  { type: 'circle', idx: 2 },
+  { type: 'circle', idx: 3 },
+];
+
+// 9) Scale SVG
 const w = baseW * scale;
 const h = baseH * scale;
 ---
 <svg
   width={w}
   height={h}
-  viewBox="0 0 120 200"
+  viewBox={`0 0 ${baseW} ${baseH}`}
   xmlns="http://www.w3.org/2000/svg"
   style="
     --pill-fill0: #2E352A;
@@ -32,83 +72,42 @@ const h = baseH * scale;
     --stroke-w:    1px;
   "
 >
-  <!-- 1) pill-fill0 – no size change -->
-  <rect
-    x="30"
-    y="60"
-    width="60"
-    height="100"
-    rx="30"
-    ry="30"
-    fill="var(--pill-fill0)"
-    stroke="#000"
-    stroke-width="1"
-  />
-
-  <!-- 2) circle-fill0 – shrink by 3px (r: 30→27) -->
-  <rect
-    x="30"
-    y="60"
-    width="54"
-    height="94"
-    rx="27"
-    ry="27"
-    fill="var(--pill-fill1)"
-    stroke="#000"
-    stroke-width="1"
-  />
-
-  <!-- 3) pill-fill1 – shrink by 6px (w:60→54, h:100→94) -->
-  <circle
-    cx="60"
-    cy="60"
-    r="27"
-    fill="var(--circle-fill0)"
-    stroke="#000"
-    stroke-width="1"
-  />
-
-  <!-- 4) circle-fill1 – shrink by 9px (r:30→21) -->
-  <circle
-    cx="60"
-    cy="60"
-    r="21"
-    fill="var(--circle-fill1)"
-    stroke="#000"
-    stroke-width="1"
-  />
-
-  <!-- 5) pill-fill2 – shrink by 12px (w:60→48, h:100→88) -->
-  <rect
-    x="30"
-    y="60"
-    width="48"
-    height="88"
-    rx="24"
-    ry="24"
-    fill="var(--pill-fill2)"
-    stroke="#000"
-    stroke-width="1"
-  />
-
-  <!-- 6) circle-fill2 – shrink by 15px (r:30→15) -->
-  <circle
-    cx="60"
-    cy="60"
-    r="15"
-    fill="var(--circle-fill2)"
-    stroke="#000"
-    stroke-width="1"
-  />
-
-  <!-- 7) circle-fill3 – shrink by 18px (r:30→12) -->
-  <circle
-    cx="60"
-    cy="60"
-    r="12"
-    fill="var(--circle-fill3)"
-    stroke="#000"
-    stroke-width="1"
-  />
+  {shapeOrder.map((shape, i) => {
+    if (shape.type === 'pill') {
+      const idx = shape.idx;
+      const wP = pillSizes[idx];
+      const hP = pillHeights[idx];
+      const fillVar = pillFills[idx];
+      return (
+        <rect
+          key={i}
+          x={cx - wP / 2}
+          y={centerY - hP / 2}
+          width={wP}
+          height={hP}
+          rx={wP / 2}
+          ry={wP / 2}
+          fill={`var(${fillVar})`}
+          stroke="var(--stroke)"
+          stroke-width="var(--stroke-w)"
+        />
+      );
+    } else {
+      const idx = shape.idx;
+      const r = circleRadii[idx];
+      const fillVar = circleFills[idx];
+      return (
+        <circle
+          key={i}
+          cx={cx}
+          cy={circleCY}
+          r={r}
+          fill={`var(${fillVar})`}
+          stroke="var(--stroke)"
+          stroke-width="var(--stroke-w)"
+        />
+      );
+    }
+  })}
 </svg>
 

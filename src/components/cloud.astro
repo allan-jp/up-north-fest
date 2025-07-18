@@ -1,0 +1,49 @@
+
+---
+// src/components/cloud.astro
+export interface Props {
+  /** Optional CSS class for styling or debugging */
+  class?: string;
+  /** Width of the SVG in pixels */
+  width?: number;
+  /** Height of the SVG in pixels */
+  height?: number;
+  /** Fill color for the cloud (CSS color code), defaults to white */
+  fillColor?: string;
+}
+
+const {
+  class: cls = '',
+  width = 200,
+  height = 100,
+  fillColor = '#ffffff',
+  ...rest
+} = Astro.props as Props;
+---
+<svg
+  class={cls}
+  {...rest}
+  width={width}
+  height={height}
+  viewBox="0 0 200 100"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="Cumulus Cloud"
+>
+  <g
+    fill={fillColor}
+    stroke="#000"
+    stroke-width="2"
+    stroke-linejoin="round"
+  >
+    <!-- Left puff -->
+    <circle cx="60" cy="60" r="30" />
+    <!-- Top puff -->
+    <circle cx="100" cy="50" r="40" />
+    <!-- Right puff -->
+    <circle cx="140" cy="60" r="30" />
+    <!-- Base to smooth the bottom -->
+    <!-- (Optional) Add additional circles or custom path here if you want a smoother bottom edge -->
+  </g>
+</svg>
+

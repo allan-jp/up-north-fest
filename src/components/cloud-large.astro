@@ -1,0 +1,51 @@
+
+---
+// src/components/cloud-large.astro
+export interface Props {
+  /** Optional CSS class for styling or debugging */
+  class?: string;
+  /** Width of the SVG in pixels */
+  width?: number;
+  /** Height of the SVG in pixels */
+  height?: number;
+  /** Fill color for the cloud (CSS color code), defaults to white */
+  fillColor?: string;
+}
+
+const {
+  class: cls = '',
+  width = 300,
+  height = 150,
+  fillColor = '#ffffff',
+  ...rest
+} = Astro.props as Props;
+---
+<svg
+  class={cls}
+  {...rest}
+  width={width}
+  height={height}
+  viewBox="0 0 300 150"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="Large Asymmetric Cumulus Cloud"
+>
+  <g
+    fill={fillColor}
+    stroke="#000"
+    stroke-width="2"
+    stroke-linejoin="round"
+  >
+    <!-- Main left puff -->
+    <circle cx="70" cy="85" r="45" />
+    <!-- Central top puff -->
+    <circle cx="140" cy="60" r="55" />
+    <!-- Central bottom puff -->
+    <circle cx="120" cy="100" r="30" />
+    <!-- Right large puff -->
+    <circle cx="200" cy="80" r="40" />
+    <!-- Small accent puff for asymmetry -->
+    <circle cx="230" cy="110" r="25" />
+  </g>
+</svg>
+

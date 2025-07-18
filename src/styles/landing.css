@@ -37,7 +37,7 @@
   to { 
     opacity: 1;
     /* end ~10px above the lowest tree tip */
-    transform: translate(348px, 65px);
+    transform: translate(348px, 110px);
   }
 }
 
@@ -57,6 +57,7 @@
 
 
 #logo {
+	transform: translateY(400px);
   transform-box: fill-box;
   transform-origin: 300px 100px;
   animation: logo-fade-in 2.5s ease-out 0s forwards;

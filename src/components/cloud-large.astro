@@ -15,7 +15,7 @@ export interface Props {
 const {
   class: cls = '',
   width = 300,
-  height = 150,
+  height = 400,
   fillColor = '#ffffff',
   ...rest
 } = Astro.props as Props;
@@ -25,7 +25,7 @@ const {
   {...rest}
   width={width}
   height={height}
-  viewBox="0 0 300 150"
+  viewBox="-20 -50 300 400"
   xmlns="http://www.w3.org/2000/svg"
   role="img"
   aria-label="Large Asymmetric Cumulus Cloud"
@@ -36,16 +36,20 @@ const {
     stroke-width="2"
     stroke-linejoin="round"
   >
-    <!-- Main left puff -->
-    <circle cx="70" cy="85" r="45" />
+
+	
     <!-- Central top puff -->
     <circle cx="140" cy="60" r="55" />
-    <!-- Central bottom puff -->
-    <circle cx="120" cy="100" r="30" />
+    <!-- BIG BACK puff -->
+		<circle cx="85" cy="40" r="68" />    
+   	<!-- Main left puff -->
+		<circle cx="55" cy="85" r="45" />	
+		<!-- Central bottom puff -->
+    <circle cx="20" cy="100" r="30" />
     <!-- Right large puff -->
     <circle cx="200" cy="80" r="40" />
     <!-- Small accent puff for asymmetry -->
-    <circle cx="230" cy="110" r="25" />
+    <circle cx="230" cy="78" r="25" />
   </g>
 </svg>
 

@@ -1,6 +1,7 @@
 
 ---
 // src/components/water.astro
+import "../styles/landing.css"
 
 interface Props {
   /** Width of the water SVG in pixels */
@@ -8,22 +9,25 @@ interface Props {
   /** Height of the water SVG in pixels */
   height?: number;
   /** Optional CSS class for styling */
-  class?: string;
+	class?: string;
 }
-const { width = 800, height = 200, class: cls = '' } = Astro.props as Props;
+const { 
+	width = 800, 
+	height = 200, 
+	class: cls = ''} = Astro.props as Props;
 ---
 <svg
-  class={cls}
-  width={width}
+	class={`water-svg ${cls}`}
+	width={width}
   height={height}
   viewBox="0 0 800 200"
   xmlns="http://www.w3.org/2000/svg"
   role="img"
-  aria-label="Wavy water pattern"
+	aria-label="Wavy water pattern"
 >
   <defs>
     <!-- Clip background to match the top-most wave shape -->
-    <clipPath id="water-clip">
+    <clipPath id="water-clip" class="wave wave1">
       <path d="M0,40 Q25,30 50,40 T100,40 T150,40 T200,40 T250,40 T300,40 T350,40 T400,40 T450,40 T500,40 T550,40 T600,40 T650,40 T700,40 T750,40 T800,40 L800,200 L0,200 Z" />
     </clipPath>
   </defs>
@@ -32,16 +36,16 @@ const { width = 800, height = 200, class: cls = '' } = Astro.props as Props;
   <rect
     width="800"
     height="200"
-    fill="#0013de"
+		fill="#4A90E2"
     clip-path="url(#water-clip)"
   />
 
   <!-- Wavy black lines with double frequency, spaced 37px apart, now shallower -->
-  <path d="M0,40 Q25,30 50,40 T100,40 T150,40 T200,40 T250,40 T300,40 T350,40 T400,40 T450,40 T500,40 T550,40 T600,40 T650,40 T700,40 T750,40 T800,40" stroke="#000" stroke-width="4" fill="none" />
-  <path d="M0,77 Q25,67 50,77 T100,77 T150,77 T200,77 T250,77 T300,77 T350,77 T400,77 T450,77 T500,77 T550,77 T600,77 T650,77 T700,77 T750,77 T800,77" stroke="#000" stroke-width="4" fill="none" />
-  <path d="M0,114 Q25,104 50,114 T100,114 T150,114 T200,114 T250,114 T300,114 T350,114 T400,114 T450,114 T500,114 T550,114 T600,114 T650,114 T700,114 T750,114 T800,114" stroke="#000" stroke-width="4" fill="none" />
-  <path d="M0,151 Q25,141 50,151 T100,151 T150,151 T200,151 T250,151 T300,151 T350,151 T400,151 T450,151 T500,151 T550,151 T600,151 T650,151 T700,151 T750,151 T800,151" stroke="#000" stroke-width="4" fill="none" />
-  <path d="M0,188 Q25,178 50,188 T100,188 T150,188 T200,188 T250,188 T300,188 T350,188 T400,188 T450,188 T500,188 T550,188 T600,188 T650,188 T700,188 T750,188 T800,188" stroke="#000" stroke-width="4" fill="none" />
-  <path d="M0,225 Q25,215 50,225 T100,225 T150,225 T200,225 T250,225 T300,225 T350,225 T400,225 T450,225 T500,225 T550,225 T600,225 T650,225 T700,225 T750,225 T800,225" stroke="#000" stroke-width="4" fill="none" />
+  <path class="wave wave1" d="M0,40 Q25,30 50,40 T100,40 T150,40 T200,40 T250,40 T300,40 T350,40 T400,40 T450,40 T500,40 T550,40 T600,40 T650,40 T700,40 T750,40 T800,40" stroke="#000" stroke-width="4" fill="none" />
+  <path class="wave wave2" d="M0,77 Q25,67 50,77 T100,77 T150,77 T200,77 T250,77 T300,77 T350,77 T400,77 T450,77 T500,77 T550,77 T600,77 T650,77 T700,77 T750,77 T800,77" stroke="#000" stroke-width="4" fill="none" />
+  <path class="wave wave1" d="M0,114 Q25,104 50,114 T100,114 T150,114 T200,114 T250,114 T300,114 T350,114 T400,114 T450,114 T500,114 T550,114 T600,114 T650,114 T700,114 T750,114 T800,114" stroke="#000" stroke-width="4" fill="none" />
+  <path class="wave wave2" d="M0,151 Q25,141 50,151 T100,151 T150,151 T200,151 T250,151 T300,151 T350,151 T400,151 T450,151 T500,151 T550,151 T600,151 T650,151 T700,151 T750,151 T800,151" stroke="#000" stroke-width="4" fill="none" />
+  <path class="wave wave1" d="M0,188 Q25,178 50,188 T100,188 T150,188 T200,188 T250,188 T300,188 T350,188 T400,188 T450,188 T500,188 T550,188 T600,188 T650,188 T700,188 T750,188 T800,188" stroke="#000" stroke-width="4" fill="none" />
+  <path class="wave wave2" d="M0,225 Q25,215 50,225 T100,225 T150,225 T200,225 T250,225 T300,225 T350,225 T400,225 T450,225 T500,225 T550,225 T600,225 T650,225 T700,225 T750,225 T800,225" stroke="#000" stroke-width="4" fill="none" />
 </svg>
 

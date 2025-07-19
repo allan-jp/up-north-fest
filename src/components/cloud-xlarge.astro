@@ -1,0 +1,64 @@
+
+---
+// src/components/cloud-xlarge.astro
+export interface Props {
+  /** Optional CSS class for styling or debugging */
+  class?: string;
+  /** Width of the SVG in pixels; defaults to natural bounding box width */
+  width?: number;
+  /** Height of the SVG in pixels; defaults to natural bounding box height */
+  height?: number;
+  /** Fill color for the cloud (CSS color code), defaults to white */
+  fillColor?: string;
+}
+
+// Natural bounding-box extents with 5px margin on all sides: x from -45 to 660 (width 705), y from -10 to 455 (height 465)
+const {
+  class: cls = '',
+  width = 610,
+  height = 420,
+  fillColor = '#ffffff',
+  ...rest
+} = Astro.props as Props;
+---
+<svg
+  class={cls}
+  {...rest}
+  width={width}
+  height={height}
+  viewBox="-5 -55 610 420"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="Extra Large Asymmetric Cumulus Cloud"
+>
+  <g
+    fill={fillColor}
+    stroke="#000"
+    stroke-width="2"
+    stroke-linejoin="round"
+  >
+    <!-- Far back large puff -->
+    <circle cx="260" cy="175" r="180" />
+    <!-- Upper center puff -->
+    <circle cx="380" cy="185" r="140" />
+    <!-- Right top-medium puff -->
+    <circle cx="530" cy="165" r="70" />
+    <!-- Left mid puff -->
+    <circle cx="80" cy="300" r="120" />
+    <!-- Center bottom puff -->
+    <circle cx="350" cy="360" r="80" />
+    <!-- Right mid puff -->
+    <circle cx="520" cy="280" r="110" />
+    <!-- Mid-accent puff -->
+    <circle cx="430" cy="330" r="90" />
+    <!-- Front-left small accent -->
+    <circle cx="30" cy="400" r="50" />
+    <!-- Front-right small accent -->
+    <circle cx="595" cy="290" r="60" />
+    <!-- Top-left accent puff -->
+    <circle cx="180" cy="65" r="60" />
+    <!-- Mid-top accent puff -->
+    <circle cx="300" cy="120" r="60" />
+  </g>
+</svg>
+

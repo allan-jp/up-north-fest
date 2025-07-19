@@ -14,6 +14,21 @@
 }
 
 
+#cloud-large-left1 {
+  transform: translateY(100px) translateX(300px) scale(0.1);
+}
+
+
+@keyframes cloud-slow {
+
+}
+
+@keyframes cloud-slow {
+
+}
+
+
+
 
 /* 1) Trees start overlapping center, then slide outward & downward */
 @keyframes trees-left-part {
@@ -25,7 +40,7 @@
 
 @keyframes trees-right-part {
   /* start over center mirrored */
-  from { transform: translate(-200px, -140px); }
+from { transform: translate(-200px, -140px); }
   /* end off to the right and slightly down */
   to   { transform: translate(-150px, -140px); }
 }

@@ -1,10 +1,12 @@
 
 ---
 import "../styles/landing.css";
+import Cloud from "../components/cloud.astro"
+import CloudLarge from "../components/cloud-large.astro"
 import Logo from "../components/logo.astro"
-import Water from "../components/water.astro"
 import TreesLeft1 from "../components/treegroup-left-1.astro"
 import TreesRight1 from "../components/treegroup-right-1.astro"
+import Water from "../components/water.astro"
 ---
 
 <html lang="en">
@@ -30,8 +32,11 @@ import TreesRight1 from "../components/treegroup-right-1.astro"
 					opacity="0.5"
 				/>       
 				
-				<!-- Clouds? -->
-				<!-- Maybe put clouds here -->
+				<!-- Clouds -->
+				<g id="cloud-large-left1">
+					<CloudLarge />
+				</g>
+
 
 				<!-- LAKE -->
 			  <g id="water">

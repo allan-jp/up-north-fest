@@ -1,0 +1,49 @@
+
+---
+// src/components/cloud-pill.astro
+export interface Props {
+  /** Optional CSS class for styling or debugging */
+  class?: string;
+  /** Width of the SVG in pixels */
+  width?: number;
+  /** Height of the SVG in pixels */
+  height?: number;
+  /** Background fill color of the cloud */
+  fillColor?: string;
+  /** Stroke color of the outline */
+  strokeColor?: string;
+}
+
+const {
+  class: cls = '',
+  width = 310,
+  height = 210,
+  fillColor = '#ffffff',
+  strokeColor = '#000000',
+  ...rest
+} = Astro.props as Props;
+---
+<svg
+  class={cls}
+  {...rest}
+  width={width}
+  height={height}
+  viewBox="-5 -5 310 210"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="Pill-style Cloud with Bubble Arcs"
+>
+  <!-- Background fill -->
+  <rect
+    x="2"
+    y="120"
+    width="300"
+    height="60"
+    rx="34.5"
+    fill="none"
+    stroke={strokeColor}
+    stroke-width="2"
+  />
+
+</svg>
+
